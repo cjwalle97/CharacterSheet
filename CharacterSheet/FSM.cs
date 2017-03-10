@@ -8,15 +8,9 @@ using System.Xml.Serialization;
 
 namespace CharacterSheet
 {
-    public enum TurnState
-    {
-        //TurnBegin: will update the UI before starting the current player's turn
-        TurnBegin = 1,
-        //TurnEnd: will execute the inputted commands before moving the current Player to the next Player in the Party
-        //or moving on to the first Player of the next Party
-        TurnEnd = 3,
-    }
-
+    //Name: State
+    //Type: Class
+    //Description: allows for the creation of the States used in the FSMs
     class State
     {
         public State() { }
@@ -39,14 +33,15 @@ namespace CharacterSheet
         }
     }
 
+    //Name: FSM
+    //Type: Class
+    //Description: A series of functions that form a Finite State Machine allowing the user to cycle through states
     class FSM<T>
     {
         Dictionary<string, State> states;
         private Dictionary<string, List<State>> transitions;
         State cState;
 
-        //TurnStart -> PlayerTurn: when a button is pressed
-        //TurnEnd -> TurnStart: Automatic, when the UI updates
         public FSM()
         {
             states = new Dictionary<string, State>();

@@ -7,7 +7,10 @@ using System.Xml.Serialization;
 
 namespace CharacterSheet
 {
-    public class Demon: IDamageable
+    //Name: Demon
+    //Type: class
+    //Description: A class that contains a series of stats such as Health, Mana, Strength, etc. Meant to be used in serialization.
+    public class Demon
     {
         private string Name;
         private float Health;

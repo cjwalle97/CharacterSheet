@@ -8,7 +8,9 @@ using System.IO;
 
 namespace CharacterSheet
 {
-    //Name: 
+    //Name: DataSerializer
+    //Type: class
+    //Description: designed to save and load data in the form of an xml file 
     static class DataSerializer<T>
     {
         public static void Serialize(string FileName, T data)

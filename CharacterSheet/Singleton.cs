@@ -7,6 +7,9 @@ using System.Xml.Serialization;
 
 namespace CharacterSheet
 {
+    //Name: Singleton
+    //Type: Class
+    //Description: Designed to set up the states and FSM needed to serialize the Demon class
     class Singleton
     {
         private DemonManager m_demonManager;
