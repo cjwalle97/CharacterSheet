@@ -17,7 +17,7 @@ namespace CharacterSheet
         private float Agility;
         private float Luck;
 
-        public Demon() { };
+        public Demon() { }
         public Demon(string n, float h, float r, float s, float m, float d, float a, float l)
         {
             Name = n;
@@ -28,6 +28,10 @@ namespace CharacterSheet
             Dexterity = d;
             Agility = a;
             Luck = l;
+        }
+        public string AccessName()
+        {
+            return Name;
         }
     }
 }

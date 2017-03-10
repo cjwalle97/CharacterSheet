@@ -14,6 +14,20 @@ namespace CharacterSheet
     {
         Demon Nekomata = new Demon("Nekomata", 350, 150, 17, 17, 27, 27, 22);
 
+        public void SaveBehaviour()
+        {
+            DataSerializer<Demon>.Serialize("Saved Demon", Nekomata);
+        }
+
+        public void LoadBehaviour()
+        {
+            DataSerializer<Demon>.Deserialize("Saved Demon");
+        }
+
+        public void QuitBehaviour()
+        {
+
+        }
         public Form1()
         {
             InitializeComponent();

@@ -14,7 +14,8 @@ namespace CharacterSheet
         {
             XmlSerializer Serializer = new XmlSerializer(typeof(T));
 
-            TextWriter writer = new StreamWriter(Environment.CurrentDirectory + "../Saves/" + FileName + ".xml");
+            TextWriter writer = new StreamWriter(Environment.CurrentDirectory + 
+                "../Saves/" + FileName + ".xml");
 
             Serializer.Serialize(writer, data);
             writer.Close();
@@ -26,7 +27,8 @@ namespace CharacterSheet
 
             XmlSerializer serializer = new XmlSerializer(typeof(T));
 
-            TextReader reader = new StreamReader(Environment.CurrentDirectory + "../Saves/" + filename + ".xml");
+            TextReader reader = new StreamReader(Environment.CurrentDirectory + 
+                "../Saves/" + filename + ".xml");
 
             data = (T)serializer.Deserialize(reader);
 

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace CombatForms
+namespace CharacterSheet
 {
     public enum TurnState
     {
@@ -64,9 +64,8 @@ namespace CombatForms
         {
             if (isValidTransition(state))
             {
-                //cState.onExit();
                 cState = state;
-                //cState.onEnter();
+
             }
         }
 

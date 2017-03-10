@@ -8,27 +8,36 @@ namespace CharacterSheet
 {
     class Singleton
     {
+        private DemonManager m_demonManager;
 
-        private Demon m_Demon;
-        private MainFSM;
-
-        public Demon Demon
+        public enum SingletonState
         {
-            get { return m_Demon; }
-            set { m_Demon = value; }
+            Init, Idle, Save, Load, Quit
+        }
+
+        public State Init = new State(SingletonState.Init);
+        public State Idle = new State(SingletonState.Idle);
+        public State Save = new State(SingletonState.Save);
+        public State Load = new State(SingletonState.Load);
+        public State Quit = new State(SingletonState.Quit);
+
+        public DemonManager DemonManager
+        {
+            get { return m_demonManager; }
+            set { m_demonManager = value; }
         }
 
         public delegate void Del();
         public Del Initializer;
 
-        public static Singleton Instance
+        public void InitializeMainFSM()
         {
-            get { return Instance; }
-        }
-
-        private Singleton ()
-        {
-            DemonStorer a = new DemonStorer();
+            DemonManager.MainFSM.AddTransition(SingletonState.Init.ToString(), DemonManager.MainFSM.GetState(Idle));
+            DemonManager.MainFSM.AddTransition(SingletonState.Idle.ToString(), DemonManager.MainFSM.GetState(Save));
+            DemonManager.MainFSM.AddTransition(SingletonState.Save.ToString(), DemonManager.MainFSM.GetState(Idle));
+            DemonManager.MainFSM.AddTransition(SingletonState.Idle.ToString(), DemonManager.MainFSM.GetState(Load));
+            DemonManager.MainFSM.AddTransition(SingletonState.Load.ToString(), DemonManager.MainFSM.GetState(Idle));
+            DemonManager.MainFSM.AddTransition(SingletonState.Idle.ToString(), DemonManager.MainFSM.GetState(Quit));
         }
     }
 }
