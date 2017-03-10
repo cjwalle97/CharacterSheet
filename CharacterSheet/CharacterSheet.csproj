@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="DataSerializer.cs" />
     <Compile Include="Demon.cs" />
-    <Compile Include="DemonStorer.cs" />
+    <Compile Include="DemonManager.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

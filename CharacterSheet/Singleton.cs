@@ -10,6 +10,15 @@ namespace CharacterSheet
     {
         private DemonManager m_demonManager;
 
+        public DemonManager DemonManager
+        {
+            get { return m_demonManager; }
+            set { m_demonManager = value; }
+        }
+
+        public delegate void Del();
+        //public Del Initializer;
+
         public enum SingletonState
         {
             Init, Idle, Save, Load, Quit
@@ -21,15 +30,6 @@ namespace CharacterSheet
         public State Load = new State(SingletonState.Load);
         public State Quit = new State(SingletonState.Quit);
 
-        public DemonManager DemonManager
-        {
-            get { return m_demonManager; }
-            set { m_demonManager = value; }
-        }
-
-        public delegate void Del();
-        public Del Initializer;
-
         public void InitializeMainFSM()
         {
             DemonManager.MainFSM.AddTransition(SingletonState.Init.ToString(), DemonManager.MainFSM.GetState(Idle));
@@ -38,6 +38,10 @@ namespace CharacterSheet
             DemonManager.MainFSM.AddTransition(SingletonState.Idle.ToString(), DemonManager.MainFSM.GetState(Load));
             DemonManager.MainFSM.AddTransition(SingletonState.Load.ToString(), DemonManager.MainFSM.GetState(Idle));
             DemonManager.MainFSM.AddTransition(SingletonState.Idle.ToString(), DemonManager.MainFSM.GetState(Quit));
+        }
+        public void StartUp()
+        {
+            DemonManager.MainFSM.ChangeState(Init);
         }
     }
 }

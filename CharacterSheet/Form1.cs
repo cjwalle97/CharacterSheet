@@ -31,11 +31,25 @@ namespace CharacterSheet
         public Form1()
         {
             InitializeComponent();
+            textBox1.Text = Nekomata.AccessName();
+            textBox2.Text = Nekomata.AccessHealth().ToString();
+            textBox3.Text = Nekomata.AccessMana().ToString();
+            textBox4.Text = Nekomata.AccessStrength().ToString();
+            textBox5.Text = Nekomata.AccessMagic().ToString();
+            textBox6.Text = Nekomata.AccessDexterity().ToString();
+            textBox7.Text = Nekomata.AccessAgility().ToString();
+            textBox8.Text = Nekomata.AccessLuck().ToString();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+            SaveBehaviour();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            LoadBehaviour();
         }
     }
 }

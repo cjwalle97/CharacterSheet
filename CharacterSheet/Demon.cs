@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CharacterSheet
 {
-    class Demon: IDamageable
+    public class Demon: IDamageable
     {
         private string Name;
         private float Health;
@@ -31,7 +31,43 @@ namespace CharacterSheet
         }
         public string AccessName()
         {
-            return Name;
+            string text = Name;
+            return text;
+        }
+        public float AccessHealth()
+        {
+            float Number = Health;
+            return Number;
+        }
+        public float AccessMana()
+        {
+            float Number = Mana;
+            return Number;
+        }
+        public float AccessStrength()
+        {
+            float Number = Strength;
+            return Number;
+        }
+        public float AccessMagic()
+        {
+            float Number = Magic;
+            return Number;
+        }
+        public float AccessDexterity()
+        {
+            float Number = Dexterity;
+            return Number;
+        }
+        public float AccessAgility()
+        {
+            float Number = Agility;
+            return Number;
+        }
+        public float AccessLuck()
+        {
+            float Number = Luck;
+            return Number;
         }
     }
 }
