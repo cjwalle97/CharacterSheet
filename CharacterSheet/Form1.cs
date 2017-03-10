@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace CharacterSheet
 {
@@ -43,7 +44,6 @@ namespace CharacterSheet
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
             SaveBehaviour();
         }
 
